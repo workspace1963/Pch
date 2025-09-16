@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCH Giveaway - Claim Prize</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+
+body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Top banner */
+.banner {
+    width: 100%;
+    background: #fbc02d;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-image: url('pch_logo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.banner-text {
+    font-size: 1.2em;
+}
+
+/* Container */
+.container {
+    background: #fff9c4;
+    padding: 30px 20px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+h1 {
+    color: #fbc02d;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+/* Prize image wrapper */
+.prize-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    transition: transform 0.6s ease;
+}
+
+.prize-wrapper.active {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px gold;
+    border-radius: 15px;
+}
+
+.prize-img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+}
+
+/* Pending overlay */
+.pending-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: opacity 0.6s ease;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #fbc02d;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #fdd835;
+    transform: scale(1.02);
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="banner-content">
+        <div class="banner-logo"></div>
+        <span class="banner-text">PUBLISHERS CLEARING HOUSE</span>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Prize Pending</h1>
+    <p>Your prize has not been activated or claimed yet.</p>
+
+    <div class="prize-wrapper" id="prizeWrapper">
+        <img src="prize2.jpg" alt="Prize 2" class="prize-img">
+        <div class="pending-overlay" id="pendingOverlay">Pending</div>
+    </div>
+<h><strong>Delivery fee:</strong> $500</h></h>
+    <button id="purposeBtn">Click here to see the purpose of this giveaway</button>
+    <button id="claimBtn">Activate and Claim Prize</button>
+</div>
+
+<script>
+// Purpose button action
+document.getElementById('purposeBtn').addEventListener('click', function() {
+    alert("This giveaway is intended to reward loyal participants and promote the Publishers Clearing House experience!");
+});
+
+// Claim button action
+document.getElementById('claimBtn').addEventListener('click', function() {
+    const overlay = document.getElementById('pendingOverlay');
+    const wrapper = document.getElementById('prizeWrapper');
+    
+    this.disabled = true;
+    this.innerText = "Activating...";
+
+    // Fade out the pending overlay
+    overlay.style.opacity = 0;
+
+    // Add highlight effect
+    wrapper.classList.add('active');
+
+    // Redirect after short delay to contact claim agent page
+    setTimeout(() => {
+        window.location.href = "9agent.html"; // Redirect to contact claim agent page
+    }, 5000);
+});
+</script>
+
+</body>
+</html>

